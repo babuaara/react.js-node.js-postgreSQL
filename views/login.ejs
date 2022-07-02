@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <title>Employee Login</title>
+  </head>
+  <body>
+    <div class="box">
+      <h2>Login Here</h2>
+
+      <ul>
+        <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => {
+        %>
+        <li><%= error.message %></li>
+        <% }) %> <% } %>
+      </ul>
+
+      <ul>
+        <% if(messages.success_msg) { %>
+        <li><%= messages.success_msg %></li>
+        <% } %>
+      </ul>
+
+      <ul>
+        <% if (messages.error) { %>
+        <li><%= messages.error %></li>
+        <% } %>
+      </ul>
+
+      <form action="/users/login" method="POST">
+        <div>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter the email"
+            required
+          />
+        </div>
+        <br />
+
+        <div>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter the password"
+            required
+          />
+        </div>
+        <br />
+        <div>
+          <input type="submit" value="login" />
+        </div>
+        <br />
+
+        <a href="/users/register"> Registered Here..</a>
+      </form>
+    </div>
+  </body>
+</html>

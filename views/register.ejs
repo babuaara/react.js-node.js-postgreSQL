@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Registration</title>
+
+    <style>
+      body {
+        background: #8dd8f8;
+      }
+      .box {
+        border-radius: 10%;
+        background: #f5f5f5db;
+        color: royalblue;
+        top: 50%;
+        left: 30%;
+        position: absolute;
+        transform: translate(-70%, -50%);
+        box-sizing: border-box;
+        padding: 70px 30px;
+      }
+      input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="pnumber"] {
+        border: none;
+        border-bottom: 1px solid rgb(80, 179, 244);
+        background: transparent;
+        outline: none;
+        height: 30px;
+        color: #673ab7;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        border: none;
+        outline: none;
+        height: 40px;
+        background: #2196f3;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 20px;
+      }
+      h2 {
+        text-align: center;
+      }
+      input[type="submit"]:hover {
+        cursor: pointer;
+        background: #0097a7;
+      }
+      a {
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 20px;
+        color: #069818;
+      }
+      a:hover {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2>Register Here</h2>
+      <ul>
+        <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => {
+        %>
+        <li><%= error.message %></li>
+        <% }) %> <% } %>
+      </ul>
+      <form action="/users/register" method="POST">
+        <div>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter the name"
+            required
+          />
+        </div>
+        <br />
+
+        <div>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter the email"
+            required
+          />
+        </div>
+        <br />
+
+        <div>
+          <input
+            type="pnumber"
+            id="pnumber"
+            name="pnumber"
+            placeholder="Enter the Phone Number"
+            required
+          />
+        </div>
+        <br />
+
+        <div>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter the password"
+            required
+          />
+        </div>
+        <br />
+
+        <div>
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            placeholder="Confirm Password"
+            required
+          />
+        </div>
+        <br />
+        <div>
+          <input type="submit" value="Register" />
+        </div>
+        <br />
+
+        <a href="/users/login"> Already Registered? Login Here..</a>
+      </form>
+    </div>
+  </body>
+</html>
